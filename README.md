@@ -1,3 +1,6 @@
+## Compile & Run (Student)
+This repo uses Maven. To build and run all mini-assignments and tests, run `mvn test` from the repository root.
+You can also `cd` into a mini-assignment directory under `week5-exercises/` and run `mvn test` there.
 # Week 5 Lesson: Collections, Iterators, and Data Structure Tradeoffs
 
 # How to use this README.md
