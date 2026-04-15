@@ -27,11 +27,10 @@ public class DequeWorkbench {
 
         undoStack.push("rename file");
         undoStack.push("insert checkpoint");
+        undoStack.push("delete paragraph");
 
         while (!undoStack.isEmpty()) {
             System.out.println("Undo popped: " + undoStack.pop());
         }
-
-        // TODO: Add one more stack action and show the updated LIFO behavior.
     }
 }
