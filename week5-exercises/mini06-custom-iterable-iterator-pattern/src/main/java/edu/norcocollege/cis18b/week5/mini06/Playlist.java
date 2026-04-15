@@ -26,5 +26,12 @@ public class Playlist implements Iterable<PlaylistItem> {
         return sorted.iterator();
     }
 
-    // TODO: Add a third traversal strategy for the extension challenge.
+    public Iterator<PlaylistItem> alphabeticalIterator() {
+        // Third traversal strategy: alphabetical order by title.
+        // Useful when a user wants to browse the playlist by song name
+        // without exposing the internal list structure.
+        List<PlaylistItem> sorted = new ArrayList<>(items);
+        sorted.sort(Comparator.comparing(PlaylistItem::getTitle));
+        return sorted.iterator();
+    }
 }
