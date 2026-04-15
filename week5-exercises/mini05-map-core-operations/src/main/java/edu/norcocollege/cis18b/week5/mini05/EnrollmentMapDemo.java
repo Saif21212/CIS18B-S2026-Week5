@@ -1,5 +1,6 @@
 package edu.norcocollege.cis18b.week5.mini05;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -30,10 +31,16 @@ public class EnrollmentMapDemo {
         System.out.println("Defaults: " + defaults);
 
         Map<String, List<String>> departments = new HashMap<>();
-        departments.computeIfAbsent("CIS", key -> new java.util.ArrayList<>()).add("SEC-101");
-        departments.computeIfAbsent("CIS", key -> new java.util.ArrayList<>()).add("SEC-102");
+        departments.computeIfAbsent("CIS", key -> new ArrayList<>()).add("SEC-101");
+        departments.computeIfAbsent("CIS", key -> new ArrayList<>()).add("SEC-102");
         System.out.println("Grouped sections: " + departments);
 
-        // TODO: Demonstrate and explain why mutable keys are hazardous in hash-based maps.
+        // Mutable keys are hazardous in hash-based maps because a HashMap stores
+        // each key at a bucket determined by its hashCode() at insertion time.
+        // If a mutable key object is modified after insertion, its hashCode changes,
+        // so the map can no longer find it at the original bucket — the entry becomes
+        // permanently unreachable even though it still exists in the map.
+        // Always use immutable objects (like String or Integer) as map keys.
+        System.out.println("Note: mutable keys break HashMap lookup after mutation.");
     }
 }
